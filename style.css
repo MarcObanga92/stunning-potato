@@ -1,43 +1,199 @@
 
-#cart {
-    list-style-type: none;
-    padding: 0;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  font-size: 18px;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.header{
+  height: 80px;
+  width: 70%;
+  background-color: rebeccapurple;
+  border-radius: 3px;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.header .logo{
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.cart{
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 3px;
+  width: 80px;
+}
+.fa-solid{
+  color: goldenrod;
+}
+.cart p{
+  height: 22px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background-color: goldenrod;
+  color: white;
+  margin: 10px;
+}
+.container{
+  display: flex;
+  width: 70%;
+  margin-bottom: 30px;
+}
+#root{
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+.sidebar{
+  width: 40%;
+  border-radius: 5px;
+  background-color: #eee;
+  margin-left: 20px;
+  padding: 15px;
+  text-align: center;
+}
+.head{
+  background-color: royalblue;
+  border-radius: 3px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.foot{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  padding: 10px 0px;
+  border-top: 1px solid #333;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  padding: 15px;
+}
+.img-box{
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.images{
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: cover;
+  object-position: center;
+}
+.bottom{
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+}
+h2{
+  font-size: 20px;
+  color: red;
+}
+button{
+  width: 100%;
+  position: relative;
+  border: none;
+  border-radius: 5px;
+  background-color: goldenrod;
+  padding: 7px 25px;
+  cursor: pointer;
+  color: white;
+}
+button:hover{
+  background-color: #333;
+}
+.cart-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+  border-radius: 3px;
+  margin: 10px 10px;
+}
+.row-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid goldenrod;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rowimg{
+  max-width: 43px;
+  max-height: 43px;
+  border-radius: 50%;
+}
+.fa-trash:hover{
+  cursor: pointer;
+  color: #333;
+}
+/* Style du bouton j'aime */
+.fa-heart.liked {
+    color: red;
+    margin-bottom: 10px;
 }
 
 
-#cart li {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
+.box {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px; /* Ajouter de la marge en bas */
+}
+
+/* Ajouter de la marge à droite du Z Flip */
+.box:nth-child(1) {
+    margin-right: 5px; /* Ajouter de la marge à droite */
+}
+
+.box .bottom {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-
-button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin: 2px;
+.box button {
+    margin: 5px;
 }
-
-button:hover {
-    background-color: #2980b9;
-}
-
-
-.like {
-    background-color: transparent;
-    color: red;
-    border: none;
-    padding: 5px;
-    margin: 2px;
-}
-
-.like.liked {
-    color: red;
-    text-shadow: 0 0 10px red;
+.fa-heart {
+    color: blue;
 }

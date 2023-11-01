@@ -1,82 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Panier d'achats</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
-</head>
-<body style="background-image: url('ecommerce.jpg'); background-size: cover;">
-    <h1>Mon Panier</h1>
-    <ul id="cart">
-        <!-- List of items will be dynamically added here -->
-    </ul>
-    <p>Total: <span id="totalPrice">$0.00</span></p>
-
-    <script>
-       
-        const itemsInCart = [
-            { name: 'chaussure nike', price: 14.00, quantity: 3 },
-            { name: 'pull Adidas', price: 15.00, quantity: 1 },
-            { name: 'short puma', price: 30.00, quantity: 3 },
-            
-        ];
-
-        
-        function displayCart() {
-            const cart = document.getElementById('cart');
-            cart.innerHTML = '';
-
-            let totalPrice = 0;
-
-            itemsInCart.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                <strong>${item.name}</strong> - $${item.price} x 
-                <button class="minus">-</button>
-                ${item.quantity}
-                <button class="plus">+</button>
-                <button class="delete">Remove</button>
-                <button class="like">❤️</button>
-                `;
-
-                
-                const minusBtn = listItem.querySelector('.minus');
-                minusBtn.addEventListener('click', () => {
-                    item.quantity--;
-                    if (item.quantity <= 0) {
-                        itemsInCart.splice(itemsInCart.indexOf(item), 1);
-                    }
-                    displayCart();
-                });
-
-                const plusBtn = listItem.querySelector('.plus');
-                plusBtn.addEventListener('click', () => {
-                    item.quantity++;
-                    displayCart();
-                });
-
-                const deleteBtn = listItem.querySelector('.delete');
-                deleteBtn.addEventListener('click', () => {
-                    itemsInCart.splice(itemsInCart.indexOf(item), 1);
-                    displayCart();
-                });
-
-                const likeBtn = listItem.querySelector('.like');
-                likeBtn.addEventListener('click', () => {
-                   
-                    likeBtn.classList.toggle('liked');
-                });
-
-                totalPrice += item.price * item.quantity;
-
-                cart.appendChild(listItem);
-            });
-
-            document.getElementById('totalPrice').textContent = `$${totalPrice.toFixed(2)}`;
-        }
-
-       
-        displayCart();
-    </script>
-</body>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="header">
+            <p class="logo">LOGO</p>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+        </div>
+        <div class="container">
+            <div id="root"></div>
+            <div class="sidebar">
+                <div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your cart is empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0.00</h2>
+                </div>
+            </div>
+        </div>
+        <script src="carte.js"></script>
+    </body>
 </html>
